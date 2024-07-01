@@ -1,0 +1,825 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth !important;
+}
+
+@media only screen and (max-width: 992px) {
+  html {
+    font-size: 55% !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 45% !important;
+  }
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/*==============================
+        header css start        
+==============================*/
+@media only screen and (max-width: 576px) {
+  .container {
+    padding: 0 3rem;
+  }
+  .header > .container {
+    padding: 0 0 !important;
+  }
+}
+#preLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#preLoader .loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  animation: rotate 1.5s ease-in infinite alternate;
+}
+#preLoader .loader::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #FF3D00;
+  background: currentColor;
+  width: 128px;
+  height: 64px;
+  border-radius: 0 0 80px 80px;
+}
+#preLoader .loader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  background: #FFF;
+  width: 16px;
+  height: 128px;
+  animation: rotate 1.2s linear infinite alternate-reverse;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 8rem;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.5s;
+}
+.header .navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navBar .logoImg {
+  width: 14.9rem;
+}
+.header .navBar .navsPhone {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.header .navBar .navsPhone #navbarExample > .mainMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .navBar .navsPhone #navbarExample > .mainMenu li a {
+  font-size: 1.5rem;
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  display: block;
+  margin-right: 3.5rem;
+  padding-top: 1.5rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s;
+}
+.header .navBar .navsPhone #navbarExample > .mainMenu li a.active, .header .navBar .navsPhone #navbarExample > .mainMenu li a:hover {
+  color: #FEC544;
+}
+.header .navBar .navsPhone .phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  padding-left: 3.5rem;
+  position: relative;
+}
+.header .navBar .navsPhone .phone::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 1.2rem;
+  width: 0.11rem;
+  background-color: #fff;
+}
+.header .navBar .navsPhone .phone i {
+  color: #fff;
+}
+.header .navBar .navsPhone .phone P {
+  color: #FEC544;
+  font-weight: 500;
+}
+.header .navBar .mobileMenu {
+  cursor: pointer;
+  display: none;
+}
+.header .navBar .mobileMenu i {
+  font-size: 3rem;
+  color: #A9ADB8;
+}
+.header .mobileMainMenu {
+  background-color: #070D1B;
+  padding: 1rem;
+  border-top: 0.001rem solid #303541;
+  border-bottom: 0.001rem solid #303541;
+}
+.header .mobileMainMenu li a {
+  display: block;
+  color: #A9ADB8;
+  font-size: 1.3rem;
+  padding: 0.8rem 1rem;
+}
+.header .mobileMainMenu li a:hover {
+  color: #FEC544;
+}
+
+.header.blackScrollHeader {
+  background-color: #070D1B;
+}
+
+@media only screen and (max-width: 1199.98px) {
+  .header {
+    height: 9.5rem;
+    padding: 0.8rem;
+  }
+  .navBar {
+    align-items: start !important;
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .header {
+    height: 8rem;
+    padding: 0;
+  }
+  .header > .container {
+    max-width: 100%;
+    --bs-gutter-x: 0 !important;
+  }
+  .navBar {
+    align-items: center !important;
+    padding: 0 2rem;
+  }
+  .navsPhone {
+    display: none !important;
+  }
+}
+/*==============================
+main css start        
+==============================*/
+.heroBG {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: url("../images/bgImg.webp") center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+.heroBG .heroText {
+  position: relative;
+  z-index: 1;
+}
+.heroBG .heroText .imgRoundPic {
+  height: 20rem;
+  width: 20rem;
+  border: 5px solid #A9ADB8;
+  border-radius: 50%;
+  margin: 0 auto 3rem;
+}
+.heroBG .heroText h1 {
+  transition: all 1s;
+  color: #fff;
+  font-size: 6rem;
+}
+.heroBG .heroText h1 span {
+  color: #FEC544;
+}
+.heroBG .heroText p {
+  font-size: 1.8rem;
+  color: #A9ADB8;
+  margin: 2rem 0 2.2rem;
+}
+.heroBG .heroText .brands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heroBG .heroText .brands .brandRound {
+  height: 4.5rem;
+  width: 4.5rem;
+  border: 2px solid #363636;
+  border-radius: 50%;
+  margin-right: 2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heroBG .heroText .brands .brandRound:hover {
+  border: 2px solid #fff;
+}
+.heroBG .heroText .brands .brandRound i {
+  color: #A9ADB8;
+  font-size: 1.8rem;
+}
+
+.navHeadings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 11rem;
+  position: relative;
+  top: 0;
+}
+.navHeadings .frontHeading {
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  top: 0;
+}
+.navHeadings .frontHeading h4 {
+  font-size: 2.4rem;
+  color: #FEC544;
+  transform: translateX(-50%);
+  margin-bottom: 0;
+}
+.navHeadings .frontHeading h4::before {
+  content: "";
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.2rem;
+  width: 17rem;
+  background-color: #3F4551;
+}
+.navHeadings .frontHeading h4::after {
+  content: "";
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.2rem;
+  width: 7rem;
+  background-color: #FEC544;
+}
+.navHeadings .backHeading {
+  position: absolute;
+  left: 50%;
+  top: -16%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 100%;
+}
+.navHeadings .backHeading h2 {
+  font-size: 9rem;
+  font-weight: 700;
+  color: rgba(21, 27, 41, 0.5019607843);
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .frontHeading {
+    top: -5% !important;
+  }
+  .backHeading h2 {
+    font-size: 7rem !important;
+  }
+}
+.aboutMe div:last-child {
+  padding-left: 3rem;
+}
+.aboutMe div:last-child h2 {
+  font-size: 3.6rem;
+  color: #FDFEFF;
+}
+.aboutMe div:last-child h4 {
+  color: #FEC544;
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin: 1.8rem 0;
+}
+.aboutMe div:last-child p {
+  color: #A9ADB8;
+  font-size: 1.6rem;
+  margin-bottom: 1.8rem;
+}
+.aboutMe div:last-child ul {
+  padding-left: 0;
+}
+.aboutMe div:last-child ul li {
+  color: #A9ADB8;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+.aboutMe div:last-child ul li span:first-child {
+  display: inline-block;
+  width: 12rem;
+}
+.aboutMe div:last-child ul li span:last-child {
+  display: inline-block;
+  margin-left: 1.6rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .aboutMe div {
+    padding: 0 0;
+  }
+  .aboutMe div:last-child {
+    padding-left: 0 !important;
+    padding-top: 3rem;
+  }
+}
+button {
+  font-size: 1.6rem;
+  color: #000;
+  border: none;
+  background-color: #FEC544;
+  padding: 1.2rem 3rem;
+  border-radius: 5rem;
+  font-weight: 500;
+  transition: all 0.5s;
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px #FEC544;
+}
+
+.services > div {
+  padding: 0;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+.services .serBox {
+  border: 1px solid #232935;
+  border-radius: 0.3rem;
+  padding: 4rem;
+  background-color: #101624;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services .serBox .svgRound {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  transition: all 0.5s;
+  border: 1px solid #3f4551;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services .serBox .svgRound svg {
+  width: 5.2rem;
+  fill: #3f4551;
+  transition: all 0.5s;
+}
+.services .serBox h2 {
+  font-size: 2rem;
+  color: #fff;
+  transition: all 0.5s;
+  margin-bottom: 1rem;
+}
+.services .serBox p {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+}
+.services .serBox:hover h2 {
+  color: #FEC544;
+}
+.services .serBox:hover .svgRound {
+  border: 1px solid #FEC544;
+}
+.services .serBox:hover .svgRound svg {
+  fill: #FEC544;
+}
+
+.mySkills h2 {
+  font-size: 3.6rem;
+  color: #FDFEFF;
+  margin-bottom: 2.5rem;
+}
+.mySkills p {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+  margin-bottom: 2rem;
+}
+.mySkills .progressDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.mySkills .progressDetail h3 {
+  color: #FDFEFF;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+}
+.mySkills .progressDetail p {
+  color: #FEC544;
+  margin-bottom: 0;
+}
+
+.resume .resumePart h2 {
+  font-size: 3.6rem;
+  color: #FDFEFF;
+  margin-bottom: 0;
+}
+.resume .resumePart h3 {
+  font-size: 2.4rem;
+  color: #FEC544;
+  margin-bottom: 0.5rem;
+}
+.resume .resumePart div {
+  font-size: 1.8rem;
+  color: #A9ADB8;
+  margin-bottom: 2.1rem;
+}
+.resume .resumePart h4 {
+  color: #FDFEFF;
+  font-size: 2rem;
+  margin-bottom: 1.9rem;
+}
+.resume .resumePart p {
+  font-size: 1.6rem;
+}
+.resume .resumePart .resPoint {
+  position: relative;
+}
+.resume .resumePart .resPoint::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: -5.2%;
+  width: 1.3rem;
+  height: 1.3rem;
+  transition: all 0.5s;
+  border-radius: 50%;
+  border: 2px solid #232935;
+  background-color: #101624;
+}
+.resume .resumePart .resPoint:hover::before {
+  background-color: #FEC544;
+}
+
+.portfolioImages > div {
+  padding: 0 0;
+  padding: 1.5rem;
+}
+.portfolioImages > div > div {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s !important;
+  cursor: pointer;
+}
+.portfolioImages > div > div img {
+  transition: all 0.5s;
+}
+.portfolioImages > div > div .portOverLay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1.5rem;
+  transition: all 0.5s;
+  width: 100%;
+  display: none;
+  background-color: rgba(88, 92, 101, 0.8);
+}
+.portfolioImages > div > div .portOverLay .overLayText {
+  width: 100%;
+  border: 1px solid #fff;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+}
+.portfolioImages > div > div .portOverLay .overLayText .plusRound {
+  height: 5rem;
+  width: 5rem;
+  border: 10px solid #FEC544;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 4rem;
+}
+.portfolioImages > div > div .portOverLay .overLayText .plusRound > div {
+  height: 100%;
+  width: 100%;
+  background-color: #0A101E;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.portfolioImages > div > div .portOverLay .overLayText .plusRound > div i {
+  font-size: 2rem;
+  color: #FEC544;
+}
+.portfolioImages > div > div .portOverLay .overLayText h5 {
+  font-size: 2.2rem;
+  color: #FDFEFF;
+  margin-bottom: 0.3rem;
+}
+.portfolioImages > div > div .portOverLay .overLayText p {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+  margin-bottom: 2rem;
+  color: #c4c6cb;
+}
+.portfolioImages > div:hover .portOverLay {
+  display: block;
+}
+.portfolioImages > div:hover img {
+  transform: scale(1.1);
+}
+
+.reviews .reviewOne {
+  cursor: default;
+}
+.reviews .reviewOne .reviewBox {
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1px solid #232935;
+  padding: 2rem;
+  background-color: #101624;
+  transition: all 0.5s;
+}
+.reviews .reviewOne .reviewBox p {
+  position: relative;
+  z-index: 2;
+  font-size: 1.6rem;
+  color: #A9ADB8;
+}
+.reviews .reviewOne .reviewBox .quoteImage {
+  position: absolute;
+  top: 0.5%;
+  left: 0.5%;
+}
+.reviews .reviewOne .reviewBox::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  height: 3.5rem;
+  width: 3.5rem;
+  border-color: #232935;
+  border-style: solid;
+  transition: all 0.5s;
+  border-width: 0 1px 1px 0;
+  background-color: #101624;
+}
+.reviews .reviewOne:hover .reviewBox {
+  border: 1px solid #FEC544;
+}
+.reviews .reviewOne:hover .reviewBox::after {
+  border-color: #FEC544;
+}
+.reviews .reviewOne .empImage {
+  width: 9rem;
+  border-radius: 50%;
+  margin: 6rem auto 2rem;
+}
+.reviews .reviewOne h4 {
+  font-size: 2rem;
+  color: #FDFEFF;
+}
+.reviews .reviewOne h4:hover {
+  color: #FEC544;
+}
+.reviews .reviewOne h3 {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+}
+
+.blogs .blogBox {
+  padding: 0;
+  padding: 2rem;
+}
+.blogs .blogBox > div .blogImage {
+  overflow: hidden;
+  cursor: pointer;
+}
+.blogs .blogBox > div .blogImage img {
+  transition: all 0.5s;
+}
+.blogs .blogBox > div .blogText div:first-child {
+  color: #A9ADB8;
+  font-size: 1.4rem;
+}
+.blogs .blogBox > div .blogText div:first-child span:not(:nth-of-type(2)) {
+  color: #FEC544;
+}
+.blogs .blogBox > div .blogText a {
+  font-size: 2rem;
+  color: #FDFEFF;
+  transition: all 0.5s;
+  line-height: 1.2;
+}
+.blogs .blogBox > div .blogText a:hover {
+  color: #FEC544;
+}
+.blogs .blogBox > div:hover img:hover {
+  transform: scale(1.1);
+}
+
+.contactMe h3 {
+  font-size: 3rem;
+  color: #FDFEFF;
+}
+.contactMe input,
+.contactMe textarea {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: #a9adb8;
+  border: 1px solid #232935;
+  font-size: 1.7rem;
+  background-color: #101624;
+}
+.contactMe input:focus,
+.contactMe textarea:focus {
+  outline: 1px solid #FEC544;
+}
+.contactMe input::-moz-placeholder, .contactMe textarea::-moz-placeholder {
+  color: rgba(128, 128, 128, 0.3);
+}
+.contactMe input::placeholder,
+.contactMe textarea::placeholder {
+  color: rgba(128, 128, 128, 0.3);
+}
+.contactMe p {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+  margin-bottom: 2rem;
+}
+.contactMe .iconTextDiv {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.contactMe .iconTextDiv .contactIcon {
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid #3f4551;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: #A9ADB8;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactMe .iconTextDiv h4 {
+  font-size: 2rem;
+  color: #FDFEFF;
+}
+.contactMe .iconTextDiv p {
+  margin-bottom: 0;
+}
+.contactMe .iconTextDiv p a {
+  color: #A9ADB8;
+  transition: all 0.5s;
+}
+.contactMe .iconTextDiv p a:hover {
+  color: #FEC544;
+}
+.contactMe .iconTextDiv:hover .contactIcon {
+  border: 1px solid #FEC544;
+}
+.contactMe .lastIconText {
+  display: flex;
+}
+.contactMe .lastIconText .singleLastIconText {
+  border: 1px solid #3f4551;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  align-items: center;
+  transition: all 0.5s;
+  border-radius: 50%;
+}
+.contactMe .lastIconText .singleLastIconText i {
+  color: #A9ADB8;
+}
+.contactMe .lastIconText .singleLastIconText span {
+  color: #FDFEFF;
+  padding-left: 1rem;
+  transition: all 0.5s;
+  display: none;
+}
+.contactMe .lastIconText .singleLastIconText:hover {
+  width: 14rem;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1.5rem;
+}
+.contactMe .lastIconText .singleLastIconText:hover span {
+  display: block;
+}
+
+footer .goToTop {
+  position: fixed;
+  z-index: 10;
+  bottom: 5%;
+  right: 3%;
+  cursor: pointer;
+  background-color: #FEC544;
+  color: #070D1B;
+  font-size: 2rem;
+  height: 5rem;
+  width: 5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+footer .goToTop a {
+  color: #070D1B;
+}
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer div p {
+  font-size: 1.6rem;
+  color: #A9ADB8;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 1400px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}/*# sourceMappingURL=style.css.map */
